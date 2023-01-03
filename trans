@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+# give language choose options
+while getopts "l:" arg; do
+  case $arg in
+					l) lang=$OPTARG;;
+  esac
+done
+
+
+[  -z "$lang" ] && lang=ZH 
+
+read input
+
+
+
+trans=$(curl -s -X POST "https://api-free.deepl.com/v2/translate" \
+	-H "Authorization: DeepL-Auth-Key a89d502a-087a-71d7-ab2d-f128732bc151:fx" \
+	-d "text=$input" \
+	-d "target_lang=$lang")
+
+text=$(echo $trans | jq -r '.translations[0].text')
+
+
+# echo $trans
+echo --------------
+echo ++++++++++++++
+echo --------------
+echo $text
