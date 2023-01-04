@@ -9,7 +9,7 @@ class TranslationDeepl < Formula
   license "MIT"
 
   depends_on "jq"
-  depends_on "pbcopy"
+ # depends_on "pbcopy"
 
   def install
     bin.install 'trans'
