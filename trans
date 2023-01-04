@@ -28,3 +28,4 @@ echo ++++++++++++++
 echo --------------
 echo $text
 echo $text | pbcopy
+# add to clipboard
